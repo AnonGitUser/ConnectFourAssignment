@@ -15,7 +15,7 @@ namespace ConnectFour
         {
             public Node(T data) { this.data = data; }
             public T data;
-            public Node next, prev;
+            public Node next;
         }
 
         public int Length { get { return length; } }

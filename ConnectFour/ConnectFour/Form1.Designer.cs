@@ -70,23 +70,26 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
             this.saveToolStripMenuItem.Text = "Customise";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(630, 42);
+            this.btnReset.Location = new System.Drawing.Point(704, 267);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(138, 49);
+            this.btnReset.Size = new System.Drawing.Size(255, 49);
             this.btnReset.TabIndex = 16;
             this.btnReset.Text = "Reset Board";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
             // lblPlayer
             // 
@@ -94,7 +97,7 @@
             this.lblPlayer.BackColor = System.Drawing.Color.Black;
             this.lblPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayer.ForeColor = System.Drawing.Color.Red;
-            this.lblPlayer.Location = new System.Drawing.Point(582, -9);
+            this.lblPlayer.Location = new System.Drawing.Point(698, 44);
             this.lblPlayer.Name = "lblPlayer";
             this.lblPlayer.Size = new System.Drawing.Size(250, 32);
             this.lblPlayer.TabIndex = 15;
@@ -102,45 +105,49 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(750, 456);
+            this.btnExit.Location = new System.Drawing.Point(842, 352);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(138, 49);
+            this.btnExit.Size = new System.Drawing.Size(117, 49);
             this.btnExit.TabIndex = 27;
             this.btnExit.Text = "Exit Game";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // btnRestart
             // 
-            this.btnRestart.Location = new System.Drawing.Point(606, 456);
+            this.btnRestart.Location = new System.Drawing.Point(704, 352);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(138, 49);
+            this.btnRestart.Size = new System.Drawing.Size(117, 49);
             this.btnRestart.TabIndex = 26;
             this.btnRestart.Text = "Restart Game";
             this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.BtnRestart_Click);
             // 
             // btnRedPlayer
             // 
-            this.btnRedPlayer.Location = new System.Drawing.Point(606, 331);
+            this.btnRedPlayer.Location = new System.Drawing.Point(718, 504);
             this.btnRedPlayer.Name = "btnRedPlayer";
             this.btnRedPlayer.Size = new System.Drawing.Size(88, 49);
             this.btnRedPlayer.TabIndex = 25;
             this.btnRedPlayer.Text = "Confirm Red Player";
             this.btnRedPlayer.UseVisualStyleBackColor = true;
             this.btnRedPlayer.Visible = false;
+            this.btnRedPlayer.Click += new System.EventHandler(this.BtnRedPlayer_Click);
             // 
             // btnYellowPlayer
             // 
-            this.btnYellowPlayer.Location = new System.Drawing.Point(709, 331);
+            this.btnYellowPlayer.Location = new System.Drawing.Point(821, 504);
             this.btnYellowPlayer.Name = "btnYellowPlayer";
             this.btnYellowPlayer.Size = new System.Drawing.Size(138, 49);
             this.btnYellowPlayer.TabIndex = 24;
             this.btnYellowPlayer.Text = "Confirm Yellow Player";
             this.btnYellowPlayer.UseVisualStyleBackColor = true;
             this.btnYellowPlayer.Visible = false;
+            this.btnYellowPlayer.Click += new System.EventHandler(this.BtnYellowPlayer_Click);
             // 
             // tbPlayerName
             // 
-            this.tbPlayerName.Location = new System.Drawing.Point(606, 303);
+            this.tbPlayerName.Location = new System.Drawing.Point(718, 476);
             this.tbPlayerName.Name = "tbPlayerName";
             this.tbPlayerName.Size = new System.Drawing.Size(241, 22);
             this.tbPlayerName.TabIndex = 23;
@@ -151,7 +158,7 @@
             // 
             this.lblRScore.AutoSize = true;
             this.lblRScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRScore.Location = new System.Drawing.Point(602, 217);
+            this.lblRScore.Location = new System.Drawing.Point(729, 169);
             this.lblRScore.Name = "lblRScore";
             this.lblRScore.Size = new System.Drawing.Size(18, 20);
             this.lblRScore.TabIndex = 22;
@@ -161,7 +168,7 @@
             // 
             this.lblYScore.AutoSize = true;
             this.lblYScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYScore.Location = new System.Drawing.Point(769, 217);
+            this.lblYScore.Location = new System.Drawing.Point(896, 169);
             this.lblYScore.Name = "lblYScore";
             this.lblYScore.Size = new System.Drawing.Size(18, 20);
             this.lblYScore.TabIndex = 21;
@@ -173,7 +180,7 @@
             this.lblRedPlayer.BackColor = System.Drawing.Color.Black;
             this.lblRedPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRedPlayer.ForeColor = System.Drawing.Color.Red;
-            this.lblRedPlayer.Location = new System.Drawing.Point(602, 186);
+            this.lblRedPlayer.Location = new System.Drawing.Point(729, 138);
             this.lblRedPlayer.Name = "lblRedPlayer";
             this.lblRedPlayer.Size = new System.Drawing.Size(42, 20);
             this.lblRedPlayer.TabIndex = 20;
@@ -185,7 +192,7 @@
             this.lblYellowPlayer.BackColor = System.Drawing.Color.Black;
             this.lblYellowPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblYellowPlayer.ForeColor = System.Drawing.Color.Yellow;
-            this.lblYellowPlayer.Location = new System.Drawing.Point(769, 186);
+            this.lblYellowPlayer.Location = new System.Drawing.Point(896, 138);
             this.lblYellowPlayer.Name = "lblYellowPlayer";
             this.lblYellowPlayer.Size = new System.Drawing.Size(63, 20);
             this.lblYellowPlayer.TabIndex = 19;
@@ -195,7 +202,7 @@
             // 
             this.lblScore.AutoSize = true;
             this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.Location = new System.Drawing.Point(668, 132);
+            this.lblScore.Location = new System.Drawing.Point(796, 107);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(53, 20);
             this.lblScore.TabIndex = 18;
@@ -221,6 +228,8 @@
             this.Controls.Add(this.lblScore);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

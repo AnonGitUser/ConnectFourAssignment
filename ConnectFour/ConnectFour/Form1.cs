@@ -15,6 +15,7 @@ namespace ConnectFour
 {
     public partial class Form1 : Form
     {
+
         //columns in board
         private Rectangle[] boardColumns;
         //overall board dimensions
@@ -25,6 +26,7 @@ namespace ConnectFour
         LinkedList<String> yellowPlayerScore = new LinkedList<String>();
         int r = 0;
         int y = 0;
+        
 
         public Form1()
         {
@@ -35,7 +37,7 @@ namespace ConnectFour
             this.turn = 1;
             lblRScore.Text = "";
             lblYScore.Text = "";
-
+            DoubleBuffered = true;
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -61,13 +63,16 @@ namespace ConnectFour
                     e.Graphics.FillEllipse(Brushes.White, 30 + 66 * j, 35 + 66 * i, 60, 60);
                 }
             }
-
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
             //getting location of mouse and seeing which column it's in
             int columnIndex = this.ColumnNumber(e.Location);
+
+            //attempt to make a reset button on message box so that users cant continue to click a won game but couldn't figure it out
+            //bool check = false;
+
             Graphics g = this.CreateGraphics();
             if (columnIndex != -1)
             {
@@ -87,9 +92,7 @@ namespace ConnectFour
                     }
                     else if (this.turn == 2)
                     {
-                        lblPlayer.Text = "Yellow Players Turn";
-                        lblPlayer.ForeColor = System.Drawing.Color.Yellow;
-                        lblPlayer.BackColor = System.Drawing.Color.Black;
+                        
 
                         lblPlayer.Text = "Red Players Turn";
                         lblPlayer.ForeColor = System.Drawing.Color.Red;
@@ -103,13 +106,16 @@ namespace ConnectFour
                     if (winner != -1)
                     {
                         String player = (winner == 1) ? "Red" : "Yellow";
-                        MessageBox.Show("Congratulations! " + player + " Player");
+                        //MessageBox.Show("Congratulations " + player + " Player!");
 
                         if (player == "Red")
                         {
                             redPlayerScore.Add("I");
                             lblRScore.Text = lblRScore.Text + redPlayerScore.Get(r);
                             r++;
+                            lblPlayer.Text = "Red WINS!";
+                            lblPlayer.ForeColor = System.Drawing.Color.Red;
+                            lblPlayer.BackColor = System.Drawing.Color.Black;
 
                         }
                         else
@@ -117,7 +123,24 @@ namespace ConnectFour
                             yellowPlayerScore.Add("I");
                             lblYScore.Text = lblYScore.Text + yellowPlayerScore.Get(y);
                             y++;
+                            lblPlayer.Text = "Yellow WINS!";
+                            lblPlayer.ForeColor = System.Drawing.Color.Yellow;
+                            lblPlayer.BackColor = System.Drawing.Color.Black;
                         }
+
+                        switch (MessageBox.Show("Do you wish to continue the game?", "Congratulations " + player + " Player!", MessageBoxButtons.YesNo))
+                        {
+                            case DialogResult.Yes:
+                                //check = true;
+                                MessageBox.Show("Click the reset board button to go to the next round", "Reset the board");
+                                ;
+                                break;
+                            case DialogResult.No:
+                                Application.Exit();
+                                ;
+                                break;
+                        }
+                        //BoardReset();
                     }
                     if (this.turn == 1)
                     {
@@ -129,7 +152,12 @@ namespace ConnectFour
                     }
                 }
             }
+            /*if (check == true)
+            {
+                BoardReset();
+            }*/
         }
+
 
         private int winnerPlayer(int playerToCheck)
         {
@@ -228,11 +256,17 @@ namespace ConnectFour
             this.board = new int[6, 7];
             this.Paint += new PaintEventHandler(Form1_Paint);
             this.turn = 1;
+            lblPlayer.Text = "Red Players Turn";
+            lblPlayer.ForeColor = System.Drawing.Color.Red;
+            lblPlayer.BackColor = System.Drawing.Color.Black;
+
         }
+
         private void BtnReset_Click(object sender, EventArgs e)
         {
             BoardReset();
         }
+
         private void BtnRedPlayer_Click(object sender, EventArgs e)
         {
             lblRedPlayer.Text = tbPlayerName.Text;
@@ -250,7 +284,7 @@ namespace ConnectFour
             tbPlayerName.Text = "";
         }
 
-        private void SaveToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnRedPlayer.Visible = true;
             tbPlayerName.Visible = true;

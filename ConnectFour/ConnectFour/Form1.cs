@@ -26,7 +26,7 @@ namespace ConnectFour
         LinkedList<String> yellowPlayerScore = new LinkedList<String>();
         int r = 0;
         int y = 0;
-        
+
 
         public Form1()
         {
@@ -92,7 +92,7 @@ namespace ConnectFour
                     }
                     else if (this.turn == 2)
                     {
-                        
+
 
                         lblPlayer.Text = "Red Players Turn";
                         lblPlayer.ForeColor = System.Drawing.Color.Red;
@@ -132,7 +132,7 @@ namespace ConnectFour
                         {
                             case DialogResult.Yes:
                                 //check = true;
-                                MessageBox.Show("Click the reset board button to go to the next round", "Reset the board");
+                                MessageBox.Show("Click the 'Reset Board' button to play the next round", "Reset the board");
                                 ;
                                 break;
                             case DialogResult.No:
@@ -278,8 +278,7 @@ namespace ConnectFour
         private void BtnYellowPlayer_Click(object sender, EventArgs e)
         {
             lblYellowPlayer.Text = tbPlayerName.Text;
-            btnRedPlayer.Visible = false;
-            btnYellowPlayer.Visible = false;
+            btnRedPlayer.Visible = false; btnYellowPlayer.Visible = false;
             tbPlayerName.Visible = false;
             tbPlayerName.Text = "";
         }
@@ -300,6 +299,29 @@ namespace ConnectFour
         {
             Application.Exit();
         }
+
+        private void SaveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            /*using (FileStream stream = new FileStream("C:\\mysecretfile.txt", FileMode.Create))
+            {
+                using (BinaryWriter writer = new BinaryWriter(stream))
+                {
+                    int x =0, y = 0;
+                    int[,] M;
+                    byte[,] M = new byte[6,7];
+                    for (int i = 0; i < 7; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
+                        {
+                            BinaryWriter.Write(M[i, j], 0, 1);
+                        }
+                    }
+                }
+            }*/
+        }
+        
+
+
     }
 }
 

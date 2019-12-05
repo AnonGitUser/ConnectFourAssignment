@@ -246,7 +246,7 @@ namespace ConnectFour
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This program was created by Zachary Carless. It is a multiplayer connect 4 game.");
+            MessageBox.Show("This program was created by Zachary Carless. It is a 2 player connect four game with name customisation and score keeping.");
         }
 
         private void BoardReset()

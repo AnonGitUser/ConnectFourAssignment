@@ -101,6 +101,7 @@
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(395, 30);
             this.tbMessage.TabIndex = 11;
+            this.tbMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbMessage_KeyDown);
             // 
             // tbIP
             // 

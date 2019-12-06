@@ -22,6 +22,7 @@ namespace Client
             InitializeComponent();
         }
 
+        //gets local IP address and fills into textbox
         private void ClientForm_Load(object sender, EventArgs e)
         {
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -42,6 +43,7 @@ namespace Client
             tbIP.Text = defaultAddress.ToString();
         }
 
+        //connects to server if possible, otherwise error
         private void BtnConnect_Click(object sender, EventArgs e)
         {
             int port;
@@ -84,6 +86,7 @@ namespace Client
             }
         }
 
+        //displays data from server
         private void ReceiveData(IAsyncResult asyncResult)
         {
             AsyncObject asyncObject = asyncResult.AsyncState as AsyncObject;
@@ -121,6 +124,7 @@ namespace Client
             catch { asyncObject.WorkingSocket.Close(); }
         }
 
+        //sends data
         private void SendText(string message)
         {
             tbMessage.Clear();
@@ -148,6 +152,11 @@ namespace Client
         }
 
         private void BtnSend_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) SendText(tbMessage.Text.Trim());
+        }
+
+        private void TbMessage_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) SendText(tbMessage.Text.Trim());
         }
@@ -182,6 +191,8 @@ namespace Client
             if (tbChat.InvokeRequired) tbChat.Invoke(textAppender, message);
             else tbChat.Text += "\r\n" + message;
         }
+
+        
     }
 
     public class AsyncObject

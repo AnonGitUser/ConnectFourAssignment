@@ -90,7 +90,7 @@ namespace Server
             }
         }
 
-        //Client fires when a connection signal comes in Callback
+        //Client fires when a connection signal comes in callback
         private void AcceptCallback(IAsyncResult asyncResult)
         {
             try
@@ -108,7 +108,7 @@ namespace Server
             catch { }
         }
 
-        //Data start when you recieve Callback
+        //Data start when you recieve callback
         private void ReceiveData(IAsyncResult asyncResult)
         {
             AsyncObject asyncObject = asyncResult.AsyncState as AsyncObject;
@@ -174,6 +174,7 @@ namespace Server
             }
         }
 
+        //sends written message
         private void SendText(string message)
         {
             if (!serverSocket.IsBound) MessageBox.Show("Server is not running.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
